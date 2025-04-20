@@ -23,8 +23,13 @@
         <li><a href="#services">Services</a></li>
         <li><a href="#contact">Contact</a></li>
         <li><a href="#visualization">Analytics</a></li>
-
       </ul>
+
+      <div class="menu-toggle">
+        <i class='bx bx-menu' id="menu-icon"></i>
+        <i class='bx bx-x' id="close-icon"></i>
+      </div>
+      
     </header>
 
     <!--home section-->
@@ -143,7 +148,7 @@
     </section class="footer" id="footer">
      <footer>
           <div class="footer-text">
-            <p>Copyright  &copy  Shwar @2024  Simon|  All  Rights  Reserved.</p>
+            <p>Copyright  &copy  Shwar @2025  Simon|  All  Rights  Reserved.</p>
           </div>
         </footer>
     <!--  
@@ -151,7 +156,7 @@
         <section id="visualization">
           <h2>Data Visualization Project</h2>
           <p>This dashboard visualizes data about XYZ. It was created using Tableau to showcase interactive data exploration and insights.</p>
-          <!--Embed Tableau Visualization 
+          Embed Tableau Visualization 
           <div class='tableauPlaceholder' id='viz1621581934796' style='position: relative'>
               <noscript>
                   <a href='#https://public.tableau.com/views/PremierLeague_17161146348360/Sheet1?:language=en-US&:sid=&:display_count=n&:origin=viz_share_link'>
@@ -176,8 +181,40 @@
           </div>
       </section>
     --->
+
+    <script>
+      const menuIcon = document.getElementById('menu-icon');
+      const closeIcon = document.getElementById('close-icon');
+      const navbar = document.querySelector('.navbar');
+    
+      menuIcon.addEventListener('click', () => {
+        navbar.classList.add('active');
+        menuIcon.style.display = 'none';
+        closeIcon.style.display = 'inline-block';
+      });
+    
+      closeIcon.addEventListener('click', () => {
+        navbar.classList.remove('active');
+        closeIcon.style.display = 'none';
+        menuIcon.style.display = 'inline-block';
+      });
+    
+      // Hide both on large screens
+      const handleResize = () => {
+        if (window.innerWidth > 768) {
+          menuIcon.style.display = 'none';
+          closeIcon.style.display = 'none';
+          navbar.classList.remove('active');
+        } else {
+          menuIcon.style.display = 'inline-block';
+        }
+      };
+    
+      window.addEventListener('resize', handleResize);
+      window.addEventListener('load', handleResize);
+    </script>
+    
   </body>
 </html>
-
 
 
